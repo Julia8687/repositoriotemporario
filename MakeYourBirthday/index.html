@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Make Your Birthday - Início</title>
+    <style>
+        @font-face {
+            font-family: 'Porky';
+            src: url(fontes/PORKH___.TTF);
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: url(imagens/MYB_headerbg.gif);
+            background-repeat: no-repeat;
+            background-size: cover;
+            color: #fff;
+        }
+
+        header {
+            background-image: url(imagens/MYB_headerbg.gif);
+            background-size: cover;
+            background-repeat: no-repeat;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .titulo {
+            color: blue;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .titulo h1 {
+            padding-top: 25px;
+        }
+
+        header p {
+            color: #2aff98;
+            }
+
+        nav {
+            justify-content: center;
+            background-color: blueviolet;
+            font-family: 'Times New Roman', Times, serif;
+            margin: 20px auto;
+            padding: 1px;
+            border-radius: 10px;
+        }
+        
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        nav ul li {
+            display: inline;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 15px;
+        }
+
+        section h2 {
+            font-family: 'Porky', sans-serif;
+            color: blue;
+            letter-spacing: 1px; /* Espaçamento entre letras */
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        footer {
+            background-color: blueviolet;
+            text-align: center;
+            padding: 10px;
+            bottom: 0;
+        }
+
+        .quiz-container {
+            background-color: blueviolet;
+            border-radius: 15px;
+            padding: 30px;
+            margin: 20px auto 100px;
+            max-width: 800px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .pergunta {
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            margin: 15px 0;
+            border-radius: 10px;
+        }
+
+        .opcoes {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-top: 15px;
+        }
+
+        .opcao {
+            display: flex;
+            align-items: center;
+            padding: 10px;
+            background-color: rgba(255, 255, 255, 0.05);
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .opcao:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .opcao input[type="radio"] {
+            margin-right: 10px;
+        }
+
+        .btn-submit {
+            background-color: #2aff98;
+            color: black;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 20px;
+            transition: background-color 0.3s;
+        }
+
+        .btn-submit:hover {
+            background-color: #20cc7a;
+        }
+
+        .resultado {
+            display: none;
+            margin-top: 20px;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+        <div class="titulo">
+        <h1>Bem-vindo ao</h1>
+        <img src="imagens/MYB_LogoHorizontal.png" alt="Make Your Birthday Logo" width="650" height="150">
+    </div>
+        <p>Website feito por Clégio Thiago e Julia Maciel, em homenagem a Mileide Maciel no dia de seu aniversário (27/10).</p>
+        <nav>
+            <ul>
+                <li><a href="index.html">Início ও </a></li>
+                <li><a href="sobre.html">Sobre ও </a></li>
+                <li><a href="contato.html">Contato ও </a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section>
+            <h2>Faça um teste respondendo 5 perguntas, no final descubra seu tema ideal!</h2>
+
+            <div class="quiz-container"> <!-- Container do quiz -->
+                <form id="quizForm"> <!-- Formulário do quiz -->
+                    <div class="pergunta">
+                        <h3>1. Qual é o seu estilo de festa preferido?</h3>
+                        <div class="opcoes">
+                            <label class="opcao">
+                                <input type="radio" name="pergunta1" value="a" required>
+                                Festa elegante e sofisticada
+                            </label>
+                            <label class="opcao">
+                                <input type="radio" name="pergunta1" value="b">
+                                Festa divertida e descontraída
+                            </label>
+                            <label class="opcao">
+                                <input type="radio" name="pergunta1" value="c">
+                                Festa temática e criativa
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="pergunta">
+                        <h3>2. Qual cor mais combina com você?</h3>
+                        <div class="opcoes">
+                            <label class="opcao">
+                                <input type="radio" name="pergunta2" value="a" required>
+                                Dourado e prateado
+                            </label>
+                            <label class="opcao">
+                                <input type="radio" name="pergunta2" value="b">
+                                Cores vibrantes e variadas
+                            </label>
+                            <label class="opcao">
+                                <input type="radio" name="pergunta2" value="c">
+                                Cores pastéis e suaves
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="pergunta">
+                        <h3>3. O que não pode faltar na sua festa?</h3>
+                        <div class="opcoes">
+                            <label class="opcao">
+                                <input type="radio" name="pergunta3" value="a" required>
+                                Decoração impecável e sofisticada
+                            </label>
+                            <label class="opcao">
+                                <input type="radio" name="pergunta3" value="b">
+                                Muita música e diversão
+                            </label>
+                            <label class="opcao">
+                                <input type="radio" name="pergunta3" value="c">
+                                Elementos personalizados e únicos
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="pergunta">
+                        <h3>4. Como você prefere celebrar seu aniversário?</h3>
+                        <div class="opcoes">
+                            <label class="opcao">
+                                <input type="radio" name="pergunta4" value="a" required>
+                                Com um jantar elegante
+                            </label>
+                            <label class="opcao">
+                                <input type="radio" name="pergunta4" value="b">
+                                Com uma grande festa animada
+                            </label>
+                            <label class="opcao">
+                                <input type="radio" name="pergunta4" value="c">
+                                Com uma celebração íntima e especial
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="pergunta">
+                        <h3>5. Qual presente você mais gosta de receber?</h3>
+                        <div class="opcoes">
+                            <label class="opcao">
+                                <input type="radio" name="pergunta5" value="a" required>
+                                Algo luxuoso e refinado
+                            </label>
+                            <label class="opcao">
+                                <input type="radio" name="pergunta5" value="b">
+                                Algo divertido e surpreendente
+                            </label>
+                            <label class="opcao">
+                                <input type="radio" name="pergunta5" value="c">
+                                Algo feito com carinho e personalizado
+                            </label>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn-submit">Ver Resultado</button>
+                </form>
+
+                <div id="resultado" class="resultado">
+                    <h3>Seu tema ideal é:</h3>
+                    <p id="temaResultado"></p>
+                    <p id="descricaoResultado"></p>
+                </div>
+
+                <script>
+                    document.getElementById('quizForm').addEventListener('submit', function(e) {
+                        e.preventDefault();
+                        
+                        // Contar as respostas
+                        let contadorA = 0;
+                        let contadorB = 0;
+                        let contadorC = 0;
+
+                        // Percorrer todas as perguntas
+                        for(let i = 1; i <= 5; i++) {
+                            const resposta = document.querySelector(`input[name="pergunta${i}"]:checked`).value;
+                            if(resposta === 'a') contadorA++;
+                            if(resposta === 'b') contadorB++;
+                            if(resposta === 'c') contadorC++;
+                        }
+
+                        // Determinar o resultado
+                        let tema = '';
+                        let descricao = '';
+
+                        if(contadorA >= contadorB && contadorA >= contadorC) {
+                            tema = 'Tema Elegante';
+                            descricao = 'Você aprecia sofisticação e refinamento! O tema elegante com elementos dourados e prateados é perfeito para sua celebração.';
+                        } else if(contadorB >= contadorA && contadorB >= contadorC) {
+                            tema = 'Tema Festivo';
+                            descricao = 'Você é uma pessoa alegre e divertida! O tema festivo com muitas cores e elementos animados combinará perfeitamente com sua personalidade.';
+                        } else {
+                            tema = 'Tema Personalizado';
+                            descricao = 'Você valoriza originalidade e significado! O tema personalizado com elementos únicos e criativos será ideal para sua celebração especial.';
+                        }
+
+                        // Mostrar o resultado
+                        document.getElementById('temaResultado').textContent = tema;
+                        document.getElementById('descricaoResultado').textContent = descricao;
+                        document.getElementById('resultado').style.display = 'block';
+
+                        // Rolar até o resultado
+                        document.getElementById('resultado').scrollIntoView({ behavior: 'smooth' });
+                    });
+                </script>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2025 Make Your Birthday. Todos os direitos reservados.</p>
+    </footer>
+</body>
+</html>
