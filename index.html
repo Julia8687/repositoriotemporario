@@ -1,0 +1,330 @@
+<!DOCTYPE html> 
+<html lang="en"> 
+<head> <
+    <meta charset="UTF-8"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <title>Make Your Birthday - Início</title> 
+    <style> 
+        @font-face { 
+            font-family: 'Porky'; /* Nome que será usado para aplicar a fonte */
+            src: url(fontes/PORKH___.TTF); /* Caminho do arquivo da fonte */
+        }
+
+        body { /* Define os estilos gerais do corpo da página */
+            font-family: Arial, Helvetica, sans-serif; /* Fonte padrão usada no texto */
+            margin: 0; /* Remove margens externas padrão */
+            padding: 0; /* Remove espaçamento interno padrão */
+            background-image: url(imagem/fundo.jpg); /* Define imagem de fundo */
+            background-repeat: no-repeat; /* Impede que a imagem se repita */
+            background-size: cover; /* Faz a imagem cobrir toda a tela */
+            color: #fff; /* Define a cor do texto como branco */
+        }
+
+        header { /* Define os estilos do cabeçalho */
+            background-image: url(imagens/MYB_headerbg.gif); /* Usa a mesma imagem de fundo */
+            background-size: cover; /* Ajusta para cobrir todo o header */
+            background-repeat: no-repeat; /* Não repete a imagem */
+            padding: 20px; /* Espaçamento interno do header */
+            text-align: center; /* Centraliza o conteúdo */
+        }
+
+        .titulo { /* Define o estilo da div com o título */
+            color: blue; /* Cor do texto azul */
+            display: flex; /* Usa display flexível para alinhar conteúdo */
+            align-items: center; /* Centraliza verticalmente */
+            justify-content: center; /* Centraliza horizontalmente */
+        }
+
+        .titulo h1 { /* Estilo do título h1 dentro da classe titulo */
+            padding-top: 25px; /* Espaçamento superior */
+        }
+
+        header p { /* Parágrafo dentro do cabeçalho */
+            color: #2aff98; /* Cor verde clara */
+        }
+
+        nav { /* Barra de navegação */
+            justify-content: center; /* Centraliza os itens (não tem efeito sem display flex, mas não prejudica) */
+            background-color: blueviolet; /* Cor de fundo roxa */
+            font-family: 'Times New Roman', Times, serif; /* Define a fonte da barra */
+            margin: 20px auto; /* Margem acima/abaixo e centralização horizontal */
+            padding: 1px; /* Pequeno espaçamento interno */
+            border-radius: 10px; /* Bordas arredondadas */
+        }
+        
+        nav ul { /* Lista dentro da navegação */
+            list-style-type: none; /* Remove os marcadores da lista */
+            padding: 0; /* Remove o espaçamento interno */
+        }
+
+        nav ul li { /* Cada item da lista */
+            display: inline; /* Coloca os itens lado a lado */
+        }
+
+        nav a { /* Links dentro da navegação */
+            color: #fff; /* Cor branca */
+            text-decoration: none; /* Remove o sublinhado */
+            margin: 0 15px; /* Espaçamento horizontal entre links */
+        }
+
+        section h2 { /* Subtítulo dentro da seção principal */
+            font-family: 'Porky', sans-serif; /* Usa a fonte personalizada */
+            color: blue; /* Cor azul */
+            letter-spacing: 1px; /* Espaçamento entre letras */
+            text-align: center; /* Centraliza o texto */
+            margin-top: 30px; /* Espaçamento superior */
+        }
+
+        footer { /* Rodapé da página */
+            background-color: blueviolet; /* Cor de fundo roxa */
+            text-align: center; /* Centraliza o texto */
+            padding: 10px; /* Espaçamento interno */
+            bottom: 0; /* Posiciona na parte inferior */
+        }
+
+        .quiz-container { /* Container principal do quiz */
+            background-color: blueviolet; /* Fundo roxo */
+            border-radius: 15px; /* Bordas arredondadas */
+            padding: 30px; /* Espaçamento interno */
+            margin: 20px auto 100px; /* Margem superior, central e inferior */
+            max-width: 800px; /* Largura máxima */
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.3); /* Sombra em volta */
+        }
+
+        .pergunta { /* Cada bloco de pergunta */
+            background-color: rgba(255, 255, 255, 0.1); /* Fundo translúcido branco */
+            padding: 20px; /* Espaçamento interno */
+            margin: 15px 0; /* Espaçamento entre perguntas */
+            border-radius: 10px; /* Bordas arredondadas */
+        }
+
+        .opcoes { /* Container das opções de resposta */
+            display: flex; /* Usa display flex */
+            flex-direction: column; /* Coloca as opções em coluna */
+            gap: 10px; /* Espaço entre as opções */
+            margin-top: 15px; /* Espaçamento acima */
+        }
+
+        .opcao { /* Cada opção de resposta */
+            display: flex; /* Flex para alinhar rádio e texto */
+            align-items: center; /* Centraliza verticalmente */
+            padding: 10px; /* Espaçamento interno */
+            background-color: rgba(255, 255, 255, 0.05); /* Fundo translúcido */
+            border-radius: 5px; /* Bordas arredondadas */
+            cursor: pointer; /* Mostra cursor de clique */
+            transition: background-color 0.3s; /* Transição suave de cor */
+        }
+
+        .opcao:hover { /* Efeito quando o usuário passa o mouse */
+            background-color: rgba(255, 255, 255, 0.2); /* Fundo fica mais claro */
+        }
+
+        .opcao input[type="radio"] { /* Estilo dos botões de rádio */
+            margin-right: 10px; /* Espaço entre botão e texto */
+        }
+
+        .btn-submit { /* Botão de envio do quiz */
+            background-color: #2aff98; /* Fundo verde claro */
+            color: black; /* Texto preto */
+            border: none; /* Sem borda */
+            padding: 15px 30px; /* Tamanho interno */
+            border-radius: 5px; /* Bordas arredondadas */
+            font-size: 16px; /* Tamanho da fonte */
+            cursor: pointer; /* Mãozinha de clique */
+            margin-top: 20px; /* Espaço acima */
+            transition: background-color 0.3s; /* Transição suave de cor */
+        }
+
+        .btn-submit:hover { /* Efeito hover no botão */
+            background-color: #20cc7a; /* Escurece o verde */
+        }
+
+        .resultado { /* Área do resultado final */
+            display: none; /* Escondido até o usuário enviar */
+            margin-top: 20px; /* Espaço acima */
+            padding: 20px; /* Espaçamento interno */
+            background-color: rgba(255, 255, 255, 0.1); /* Fundo translúcido */
+            border-radius: 10px; /* Bordas arredondadas */
+        }
+
+    </style> <!-- Fim do CSS -->
+</head>
+<body> <!-- Início do corpo da página -->
+    <header> <!-- Cabeçalho -->
+        <div class="titulo"> <!-- Div que agrupa o título e o logo -->
+        <h1>Bem-vindo ao</h1> <!-- Título principal -->
+        <img src="imagens/MYB_LogoHorizontal.png" alt="Make Your Birthday Logo" width="650" height="150"> <!-- Logo do site -->
+    </div>
+        <p>Website feito por Clégio Thiago e Julia Maciel, em homenagem a Mileide Maciel no dia de seu aniversário (27/10).</p> <!-- Texto descritivo -->
+        <nav> <!-- Menu de navegação -->
+            <ul> <!-- Lista de links -->
+                <li><a href="index.html">Início ও </a></li> <!-- Link para a página inicial -->
+                <li><a href="sobre.html">Sobre ও </a></li> <!-- Link para página sobre -->
+                <li><a href="contato.html">Contato ও </a></li> <!-- Link para página de contato -->
+            </ul>
+        </nav>
+    </header>
+
+    <main> <!-- Conteúdo principal -->
+        <section> <!-- Seção principal -->
+            <h2>Faça um teste respondendo 5 perguntas, no final descubra seu tema ideal!</h2> <!-- Título da seção -->
+
+            <div class="quiz-container"> <!-- Container do quiz -->
+                <form id="quizForm"> <!-- Formulário do quiz -->
+
+                    <!-- Pergunta 1 -->
+                    <div class="pergunta">
+                        <h3>1. Qual é o seu estilo de festa preferido?</h3> <!-- Texto da pergunta -->
+                        <div class="opcoes"> <!-- Opções de resposta -->
+                            <label class="opcao">
+                                <input type="radio" name="pergunta1" value="a" required> <!-- Opção A -->
+                                Festa elegante e sofisticada
+                            </label>
+                            <label class="opcao">
+                                <input type="radio" name="pergunta1" value="b"> <!-- Opção B -->
+                                Festa divertida e descontraída
+                            </label>
+                            <label class="opcao">
+                                <input type="radio" name="pergunta1" value="c"> <!-- Opção C -->
+                                Festa temática e criativa
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Pergunta 2 -->
+                    <div class="pergunta">
+                        <h3>2. Qual cor mais combina com você?</h3>
+                        <div class="opcoes">
+                            <label class="opcao">
+                                <input type="radio" name="pergunta2" value="a" required> <!-- Opção A -->
+                                Dourado e prateado
+                            </label>
+                            <label class="opcao">
+                                <input type="radio" name="pergunta2" value="b"> <!-- Opção B -->
+                                Cores vibrantes e variadas
+                            </label>
+                            <label class="opcao">
+                                <input type="radio" name="pergunta2" value="c"> <!-- Opção C -->
+                                Cores pastéis e suaves
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Pergunta 3 -->
+                    <div class="pergunta">
+                        <h3>3. O que não pode faltar na sua festa?</h3>
+                        <div class="opcoes">
+                            <label class="opcao">
+                                <input type="radio" name="pergunta3" value="a" required>
+                                Decoração impecável e sofisticada
+                            </label>
+                            <label class="opcao">
+                                <input type="radio" name="pergunta3" value="b">
+                                Muita música e diversão
+                            </label>
+                            <label class="opcao">
+                                <input type="radio" name="pergunta3" value="c">
+                                Elementos personalizados e únicos
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Pergunta 4 -->
+                    <div class="pergunta">
+                        <h3>4. Como você prefere celebrar seu aniversário?</h3>
+                        <div class="opcoes">
+                            <label class="opcao">
+                                <input type="radio" name="pergunta4" value="a" required>
+                                Com um jantar elegante
+                            </label>
+                            <label class="opcao">
+                                <input type="radio" name="pergunta4" value="b">
+                                Com uma grande festa animada
+                            </label>
+                            <label class="opcao">
+                                <input type="radio" name="pergunta4" value="c">
+                                Com uma celebração íntima e especial
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Pergunta 5 -->
+                    <div class="pergunta">
+                        <h3>5. Qual presente você mais gosta de receber?</h3>
+                        <div class="opcoes">
+                            <label class="opcao">
+                                <input type="radio" name="pergunta5" value="a" required>
+                                Algo luxuoso e refinado
+                            </label>
+                            <label class="opcao">
+                                <input type="radio" name="pergunta5" value="b">
+                                Algo divertido e surpreendente
+                            </label>
+                            <label class="opcao">
+                                <input type="radio" name="pergunta5" value="c">
+                                Algo feito com carinho e personalizado
+                            </label>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn-submit">Ver Resultado</button> <!-- Botão que envia o formulário -->
+                </form>
+
+                <div id="resultado" class="resultado"> <!-- Div do resultado -->
+                    <h3>Seu tema ideal é:</h3>
+                    <p id="temaResultado"></p> <!-- Mostra o nome do tema -->
+                    <p id="descricaoResultado"></p> <!-- Mostra a descrição -->
+                </div>
+
+                <script>
+                    // Adiciona um evento que será executado quando o formulário for enviado
+                    document.getElementById('quizForm').addEventListener('submit', function(e) {
+                        e.preventDefault(); // Impede que a página recarregue ao enviar
+
+                        // Cria contadores para cada tipo de resposta
+                        let contadorA = 0;
+                        let contadorB = 0;
+                        let contadorC = 0;
+
+                        // Loop que percorre todas as perguntas (1 a 5)
+                        for(let i = 1; i <= 5; i++) {
+                            const resposta = document.querySelector(`input[name="pergunta${i}"]:checked`).value; // Pega a resposta marcada
+                            if(resposta === 'a') contadorA++; // Soma no contador A se for 'a'
+                            if(resposta === 'b') contadorB++; // Soma no contador B se for 'b'
+                            if(resposta === 'c') contadorC++; // Soma no contador C se for 'c'
+                        }
+
+                        // Variáveis que armazenarão o tema e descrição final
+                        let tema = '';
+                        let descricao = '';
+
+                        // Define o resultado com base nos contadores
+                        if(contadorA >= contadorB && contadorA >= contadorC) { // Se 'a' for maioria
+                            tema = 'Tema Elegante';
+                            descricao = 'Você aprecia sofisticação e refinamento! O tema elegante com elementos dourados e prateados é perfeito para sua celebração.';
+                        } else if(contadorB >= contadorA && contadorB >= contadorC) { // Se 'b' for maioria
+                            tema = 'Tema Festivo';
+                            descricao = 'Você é uma pessoa alegre e divertida! O tema festivo com muitas cores e elementos animados combinará perfeitamente com sua personalidade.';
+                        } else { // Caso 'c' seja maioria
+                            tema = 'Tema Personalizado';
+                            descricao = 'Você valoriza originalidade e significado! O tema personalizado com elementos únicos e criativos será ideal para sua celebração especial.';
+                        }
+
+                        // Mostra o resultado no HTML
+                        document.getElementById('temaResultado').textContent = tema; // Define o texto do tema
+                        document.getElementById('descricaoResultado').textContent = descricao; // Define a descrição
+                        document.getElementById('resultado').style.display = 'block'; // Exibe o bloco de resultado
+
+                        // Faz a página rolar suavemente até o resultado
+                        document.getElementById('resultado').scrollIntoView({ behavior: 'smooth' });
+                    });
+                </script>
+            </div>
+        </section>
+    </main>
+
+    <footer> <!-- Rodapé do site -->
+        <p>&copy; 2025 Make Your Birthday. Todos os direitos reservados.</p> <!-- Texto de direitos autorais -->
+    </footer>
+</body>
+</html>
